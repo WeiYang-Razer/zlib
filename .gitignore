@@ -49,3 +49,10 @@ user.bazelrc
 # MODULE.bazel.lock is ignored for now as per this recommendation:
 # https://github.com/bazelbuild/bazel/issues/20369
 MODULE.bazel.lock
+
+# wyvrnpm-generated — do not commit
+/build/
+/wyvrn_internal/
+/wyvrn.lock
+/CMakePresets.json
+/CMakeUserPresets.json
