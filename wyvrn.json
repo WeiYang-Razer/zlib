@@ -1,6 +1,6 @@
 {
   "name": "zlib",
-  "version": "1.3.2.0",
+  "version": "1.3.2.1",
   "schemaVersion": 2,
   "kind": "StaticLib",
   "description": "TODO: one-line description of zlib",
@@ -17,5 +17,13 @@
       "-DZLIB_BUILD_EXAMPLES=OFF"
     ],
     "installDir": "install"
+  },
+  "compatibility": {
+    "os": "exact",
+    "arch": "exact",
+    "compiler": "exact",
+    "compiler.version": "exact-or-newer",
+    "compiler.cppstd": "exact-or-newer",
+    "compiler.runtime": "exact"
   }
 }
