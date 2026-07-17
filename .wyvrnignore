@@ -27,3 +27,31 @@ docker/
 bin/
 appveyor.yml
 .travis.yml
+
+# Legacy platform build dirs, unused by CMake build
+amiga/
+msdos/
+os400/
+qnx/
+watcom/
+
+# Alt build systems (autotools/bazel/VMS), unused by wyvrnpm CMake path
+configure
+Makefile
+Makefile.in
+make_vms.com
+treebuild.xml
+BUILD.bazel
+MODULE.bazel
+
+# Root docs / man pages, informational only
+ChangeLog
+FAQ
+INDEX
+README
+README-cmake.md
+zlib.3
+zlib.3.pdf
+
+# Unused pkgconfig template (CMakeLists.txt uses zlib.pc.cmakein, not this)
+zlib.pc.in

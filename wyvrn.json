@@ -1,9 +1,9 @@
 {
   "name": "zlib",
-  "version": "1.3.2.1",
+  "version": "1.3.2.2",
   "schemaVersion": 2,
   "kind": "StaticLib",
-  "description": "TODO: one-line description of zlib",
+  "description": "zlib compression library",
   "dependencies": {},
   "build": {
     "system": "cmake",
