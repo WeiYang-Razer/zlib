@@ -1,6 +1,6 @@
 {
   "name": "zlib",
-  "version": "1.3.2.2",
+  "version": "1.3.2.3",
   "schemaVersion": 2,
   "kind": "StaticLib",
   "description": "zlib compression library",
@@ -16,7 +16,10 @@
       "MinSizeRel"
     ],
     "configure": [
-      "-DZLIB_BUILD_EXAMPLES=OFF"
+      "-DZLIB_BUILD_EXAMPLES=OFF",
+      "-DCMAKE_DEBUG_POSTFIX=d",
+      "-DCMAKE_RELWITHDEBINFO_POSTFIX=rd",
+      "-DCMAKE_MINSIZEREL_POSTFIX=msr"
     ],
     "installDir": "install"
   },
