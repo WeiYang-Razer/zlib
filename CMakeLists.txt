@@ -23,6 +23,9 @@ option(ZLIB_BUILD_TESTING "Enable Zlib Examples as tests" ON)
 option(ZLIB_BUILD_SHARED "Enable building zlib shared library" ON)
 option(ZLIB_BUILD_STATIC "Enable building zlib static library" ON)
 option(ZLIB_INSTALL "Enable installation of zlib" ON)
+# wyvrnpm fork: keep the pre-1.4 MSVC names (z.dll / z.lib / zs.lib) so binaries
+# already linked against zlib 1.3.x (which import z.dll) keep loading.
+option(ZLIB_MSVC_LEGACY_NAMES "Use pre-1.4 z/zs library names on MSVC instead of libz/libzs" OFF)
 set(ZLIB_PREFIX "" CACHE STRING
     "prefix for all types and library functions, see zconf.h.in")
 mark_as_advanced(ZLIB_PREFIX)
@@ -276,7 +279,7 @@ if(ZLIB_BUILD_SHARED)
             EXPORT_NAME ZLIB
             PUBLIC_HEADER "${ZLIB_PUBLIC_HDRS}")
 
-    if(MSVC)
+    if(MSVC AND NOT ZLIB_MSVC_LEGACY_NAMES)
         set_target_properties(zlib PROPERTIES OUTPUT_NAME libz)
     else(MSVC)
         set_target_properties(zlib PROPERTIES OUTPUT_NAME z)
@@ -321,7 +324,7 @@ if(ZLIB_BUILD_STATIC)
         set_target_properties(zlibstatic PROPERTIES PREFIX "lib")
     endif(CYGWIN)
 
-    if(MSVC)
+    if(MSVC AND NOT ZLIB_MSVC_LEGACY_NAMES)
         set_target_properties(zlibstatic
             PROPERTIES
                 ARCHIVE_OUTPUT_NAME libz${zlib_static_suffix})
